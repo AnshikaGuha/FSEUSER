@@ -1,0 +1,71 @@
+package com.fsec3grp1.fseuser
+
+import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_register.*
+import android.content.Intent
+//import com.fsec3grp1.fseuser.UserLogin
+import com.fsec3grp1.fseuser.DB.LoginDBAdapter
+
+class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
+
+    private val ractivity = this@RegisterActivity
+    private lateinit var loginDBAdapter:LoginDBAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_register)
+
+        btregister!!.setOnClickListener(this)
+        loginDBAdapter = LoginDBAdapter(ractivity)
+
+        tvlogin.setOnClickListener {
+            val intent3 = Intent(this, LoginActivity::class.java)
+            startActivity(intent3)
+            finish()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btregister -> addNewUser()
+        }
+    }
+
+    private fun addNewUser() {
+        var check : Int = -1
+
+        if (etusername.text.trim().isEmpty() || etname.text.trim().isEmpty() || etemail.text.trim().isEmpty() || etcity.text.trim().isEmpty() || etpassword.text.trim().isEmpty() || etcpassword.text.trim().isEmpty())
+        {
+            Toast.makeText(applicationContext,"Provide all Inputs", Toast.LENGTH_SHORT).show()
+        } else {
+//                println(etUsername.text.toString())
+//                println(etPassword.text.toString())
+            var user = UserLogin(
+                username = etusername!!.text.toString().trim(),
+                name = etname!!.text.toString().trim(),
+                email = etemail!!.text.toString().trim(),
+                city = etcity!!.text.toString().trim(),
+                password = etpassword!!.text.toString().trim(),
+                cpassword = etcpassword!!.text.toString().trim()
+            )
+
+            check = loginDBAdapter.insertUser(user)
+        }
+        if (check != -1) {
+            Toast.makeText(applicationContext, "Successfully Inserted", Toast.LENGTH_LONG).show()
+            etusername.hint="username"
+            etname.setText("")
+            etemail.setText("")
+            etcity.setText("")
+            etpassword.setText("")
+            etcpassword.setText("")
+            etusername.requestFocus()
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(etusername, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
+}
