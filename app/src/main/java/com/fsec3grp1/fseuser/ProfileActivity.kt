@@ -30,6 +30,12 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
             finish()
         }
 
+        btupdate.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         tvprofile!!.setOnClickListener(this)
         loginDBAdapter = LoginDBAdapter(pactivity)
     }

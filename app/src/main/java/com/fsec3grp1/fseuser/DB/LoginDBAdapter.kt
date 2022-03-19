@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.fsec3grp1.fseuser.UserLogin
+import com.fsec3grp1.fseuser.User
 
 private val DB_NAME = "userlogin.db"
 private val DB_VERSION = 2
@@ -46,7 +46,7 @@ public class LoginDBAdapter(context: Context)
         onCreate(db)// Create tables again
     }
 
-    fun insertUser(userLogin: UserLogin): Int {
+    fun insertUser(userLogin: User): Int {
         val returnCheck: Int
         val db = this.writableDatabase
 
@@ -63,7 +63,7 @@ public class LoginDBAdapter(context: Context)
         return returnCheck
     }
 
-    fun updateUser(userLogin: UserLogin): Int{
+    fun updateUser(userLogin: User): Int{
         val db = this.writableDatabase
         var returnCheck: Int = -1
 

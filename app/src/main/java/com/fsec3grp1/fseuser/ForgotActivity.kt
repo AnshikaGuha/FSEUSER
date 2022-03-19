@@ -2,7 +2,6 @@ package com.fsec3grp1.fseuser
 
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_forgot.*
@@ -42,7 +41,7 @@ class ForgotActivity : AppCompatActivity(), View.OnClickListener  {
         if (etfusername.text.toString().isEmpty() || etfpassword.text.toString().isEmpty()) {
             Toast.makeText(applicationContext, "Please enter the details",Toast.LENGTH_SHORT).show()
         } else {
-            var user = UserLogin(
+            var user = User(
 //                id = id.text.toString().toInt(),
                 username = etfusername.text.toString(),
                 password = etfpassword.text.toString(),

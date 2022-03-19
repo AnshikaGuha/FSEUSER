@@ -41,10 +41,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
         if (etusername.text.trim().isEmpty() || etname.text.trim().isEmpty() || etemail.text.trim().isEmpty() || etcity.text.trim().isEmpty() || etpassword.text.trim().isEmpty() || etcpassword.text.trim().isEmpty())
         {
             Toast.makeText(applicationContext,"Provide all Inputs", Toast.LENGTH_SHORT).show()
-        } else {
+        }
+        else {
 //                println(etUsername.text.toString())
 //                println(etPassword.text.toString())
-            var user = UserLogin(
+            var user = User(
                 username = etusername!!.text.toString().trim(),
                 name = etname!!.text.toString().trim(),
                 email = etemail!!.text.toString().trim(),
