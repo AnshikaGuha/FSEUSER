@@ -2,13 +2,10 @@ package com.fsec3grp1.fseuser
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import android.view.View
 import kotlinx.android.synthetic.main.activity_profile.*
 import android.content.Intent
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
-import kotlinx.android.synthetic.main.activity_register.*
-
 
 class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
 
@@ -19,9 +16,12 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frag_display,WelcomeFragment.newInstance("",""))
-            commit()
+        val fileToRead = "LoggedInUsername"
+        this.openFileInput(fileToRead).use { stream ->
+            val text = stream.bufferedReader().use {
+                it.readLine()
+            }
+            tvwmessage.text = "Welcome $text"
         }
 
         imlogout.setOnClickListener {
