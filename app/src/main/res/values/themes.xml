@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.FSEUSER" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">#4CAF50</item>
+        <item name="colorPrimaryDark">#1F1C26</item>
+        <item name="colorAccent">#CE2A5E</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
     tools:context=".activities.RegisterActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +23,7 @@
             android:textSize="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="40dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -44,6 +45,8 @@
                 android:id="@+id/etfusername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edit_background"
+                android:textColor="@color/white"
                 android:hint="username"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +66,8 @@
                 android:id="@+id/etfpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edit_background"
+                android:textColor="@color/white"
                 android:hint="New Password"
                 android:inputType="textPassword"/>
 
@@ -82,6 +87,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edit_background"
+                android:textColor="@color/white"
                 android:hint="Re-enter password"
                 android:inputType="textPassword" />
 
@@ -97,16 +104,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textcpassword"
             app:layout_constraintBottom_toTopOf="@+id/tvlogin"
+            android:background="@drawable/button_background"
             android:text="Submit"/>
 
         <TextView
             android:id="@+id/tvlogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btfpsubmit"
+            android:text="Continue to Login?"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Continue to Login?"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btfpsubmit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

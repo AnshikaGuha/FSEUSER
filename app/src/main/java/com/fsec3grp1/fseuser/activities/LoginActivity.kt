@@ -36,6 +36,11 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btlogin.setOnClickListener {
+
+            
+
+
+
             val fileToWrite = "LoggedInUsername"
             val textToWrite = etlusername.text.toString()
             this.openFileOutput(fileToWrite, Context.MODE_PRIVATE).
