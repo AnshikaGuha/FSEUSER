@@ -28,12 +28,17 @@ class UpdateProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_profile)
 
         val fileToRead = "LoggedInUsername"
-        this.openFileInput(fileToRead).use { stream ->
-            mUserName = stream.bufferedReader().use {
-                it.readLine()
+        try {
+            this.openFileInput(fileToRead).use { stream ->
+                mUserName = stream.bufferedReader().use {
+                    it.readLine()
+                }
+                tvusername.text = mUserName
+                Log.i("username: ", mUserName)
             }
-            tvusername.text = mUserName
-            Log.i("username: ", mUserName)
+        }
+        catch(e: java.io.FileNotFoundException) {
+            Log.e("file not found: ", e.toString())
         }
 
         if(mUserName.isEmpty()) {

@@ -18,10 +18,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val fileToRead = "LoggedInUsername"
-        this.openFileInput(fileToRead).use { stream ->
-            mUserName = stream?.bufferedReader().use {
-                it?.readLine() ?: ""
+        try {
+            this.openFileInput(fileToRead).use { stream ->
+                mUserName = stream?.bufferedReader().use {
+                    it?.readLine() ?: ""
+                }
             }
+        }
+        catch(e: java.io.FileNotFoundException) {
+            Log.e("file not found: ", e.toString())
         }
 
         if(!mUserName.isEmpty()) {
