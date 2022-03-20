@@ -55,11 +55,12 @@ class UpdateProfileActivity : AppCompatActivity() {
             finish()
         }
 
-//        btupdate.setOnClickListener {
-//            val intent = Intent(this, ProfileActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        btupdateprofile.setOnClickListener {
+            updateUser()
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         loginDBAdapter = LoginDBAdapter(uactivity)
         displaySingleuser()
@@ -75,27 +76,21 @@ class UpdateProfileActivity : AppCompatActivity() {
 
     private fun updateUser() {
         var check : Int
+        var user = User(
+            username = mUserName,
+            name = etuname.text.toString(),
+            email = etuemail.text.toString(),
+            city = etucity.text.toString(),
+            password = etupassword.text.toString(),
+            cpassword = etupassword.text.toString()
+        )
+        check = loginDBAdapter.updateUser(user)
 
-        if (etuname.text.trim().isNotEmpty() || etuemail.text.trim().isNotEmpty() || etucity.text.trim().isNotEmpty() || etupassword.text.trim().isNotEmpty()) {
-            Toast.makeText(applicationContext, "Update atleast one Profile Information", Toast.LENGTH_SHORT).show()
+        if (check > 0) {
+            Toast.makeText(applicationContext, "Details updated", Toast.LENGTH_SHORT).show()
         }
         else {
-            var user = User(
-//                id = id.text.toString().toInt(),
-                username = etusername.text.toString(),
-                name = etuname.text.toString(),
-                email = etuemail.text.toString(),
-                city = etucity.text.toString(),
-                password = etupassword.text.toString(),
-                cpassword = etcpassword.text.toString()
-            )
-            check = loginDBAdapter.updateUser(user)
-
-            if (check > 0) {
-                Toast.makeText(applicationContext, "Details updated", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(applicationContext, "Cannot Update, something went wrong!!", Toast.LENGTH_LONG).show()
-            }
+            Toast.makeText(applicationContext, "Cannot Update, something went wrong!!", Toast.LENGTH_LONG).show()
         }
     }
 }

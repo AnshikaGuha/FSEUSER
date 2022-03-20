@@ -62,7 +62,7 @@ public class LoginDBAdapter(context: Context)
         db.close()
         return returnCheck
     }
-    fun displayUser(username: String): User{
+    fun displayUser(username: String): User {
         // array of columns to fetch
         val columns = arrayOf(COLUMN_ID,COLUMN_USERNAME,COLUMN_NAME,COLUMN_EMAIL,COLUMN_CITY,COLUMN_PASSWORD,COLUMN_CPASSWORD)
         // selection argument
@@ -97,23 +97,22 @@ public class LoginDBAdapter(context: Context)
 
         }
         return user
-
     }
 
-    fun updateUser(userLogin: User): Int{
+    fun updateUser(user: User): Int {
         val db = this.writableDatabase
         var returnCheck: Int = -1
 
         val values = ContentValues()
-        values.put(COLUMN_USERNAME, userLogin.username)
-        values.put(COLUMN_NAME, userLogin.name)
-        values.put(COLUMN_EMAIL, userLogin.email)
-        values.put(COLUMN_CITY, userLogin.city)
-        values.put(COLUMN_PASSWORD, userLogin.password)
-        values.put(COLUMN_CPASSWORD, userLogin.cpassword)
+        values.put(COLUMN_USERNAME, user.username)
+        values.put(COLUMN_NAME, user.name)
+        values.put(COLUMN_EMAIL, user.email)
+        values.put(COLUMN_CITY, user.city)
+        values.put(COLUMN_PASSWORD, user.password)
+        values.put(COLUMN_CPASSWORD, user.cpassword)
         // updating row
         returnCheck = db.update(TABLE_LOGIN, values, "$COLUMN_USERNAME = ?"
-            ,arrayOf(userLogin.username) )
+            ,arrayOf(user.username) )
         db.close()
         return returnCheck
     }
