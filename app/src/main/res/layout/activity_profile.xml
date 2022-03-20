@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,56 +10,66 @@
 
     <TextView
         android:id="@+id/tvwmessage"
-        android:layout_width="307dp"
-        android:layout_height="38dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
         android:text="Welcome username"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imlogout"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/imlogout"
         android:layout_width="35dp"
         android:layout_height="45dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvwmessage"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/logout" />
 
     <TextView
         android:id="@+id/tvprofile"
-        android:layout_width="371dp"
-        android:layout_height="384dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
         android:text="Profile Information"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463" />
+        android:textSize="25sp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tvwmessage"/>
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:text="Email: "
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@+id/tvprofile"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvFullname"
+        android:layout_width="wrap_content"
+        android:text="Full Name: "
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@+id/tvEmail"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:text="City: "
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@+id/tvFullname"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btupdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
-        app:layout_constraintTop_toBottomOf="@+id/tvprofile"
-        app:layout_constraintVertical_bias="0.536" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

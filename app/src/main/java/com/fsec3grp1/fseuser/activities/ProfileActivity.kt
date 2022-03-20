@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_profile.*
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
@@ -15,19 +16,22 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
 
     private val pactivity = this@ProfileActivity
     private lateinit var loginDBAdapter:LoginDBAdapter
+    var mUserName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-
-        val fileToRead = "LoggedInUsername"
-        this.openFileInput(fileToRead).use { stream ->
-            val text = stream.bufferedReader().use {
-                it.readLine()
-            }
-            tvwmessage.text = "Welcome $text"
-        }
-
+        mUserName = intent.getStringExtra("user_name").toString()
+//        val fileToRead = "LoggedInUsername"
+//        this.openFileInput(fileToRead).use { stream ->
+//            val text = stream.bufferedReader().use {
+//                it.readLine()
+//            }
+//            tvwmessage.text = "Welcome $text"
+//
+//            Log.i("user_name",user_pname.toString())
+//        }
+        tvwmessage.text = "Welcome $mUserName"
         imlogout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -42,6 +46,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
 
         tvprofile!!.setOnClickListener(this)
         loginDBAdapter = LoginDBAdapter(pactivity)
+        displaySingleuser()
     }
 
     override fun onClick(v: View?) {
@@ -52,22 +57,12 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
 
     private fun displaySingleuser() {
 
-        if (etusername.text.toString().isEmpty()) {
-            Toast.makeText(applicationContext, "Please enter ID", Toast.LENGTH_SHORT).show()
-        } else {
-            etpassword.setText("")
-            etusername.setText("")
+        val userToDisplay: User = loginDBAdapter.displayUser(mUserName)
+        tvFullname.text = tvFullname.text.toString()+userToDisplay.name
+        tvCity.text = tvCity.text.toString()+userToDisplay.city
+        tvEmail.text = tvEmail.text.toString()+userToDisplay.email
 
-            //Harika we cannot display all info in single tv
-            val userToDisplay: User = loginDBAdapter.displayUser(etusername.text.toString())
-            if (userToDisplay.id == -1) {
-                Toast.makeText(applicationContext,
-                    "Details not present", Toast.LENGTH_SHORT).show()
 
-            } else {
-                etusername.setText(userToDisplay.username)
-                etpassword.setText(userToDisplay.password)
-            }
-        }
     }
+
 }

@@ -24,7 +24,7 @@ public class LoginDBAdapter(context: Context)
     private val COLUMN_CPASSWORD = "cpassword"
 
     private val createTable = ("CREATE TABLE " + TABLE_LOGIN + "" + "("
-            + COLUMN_ID + " INTEGER PRIMARY KEY, "
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_USERNAME + " TEXT NOT NULL, "
             + COLUMN_NAME + " TEXT NOT NULL, "
             + COLUMN_EMAIL + " TEXT NOT NULL, "
@@ -64,7 +64,7 @@ public class LoginDBAdapter(context: Context)
     }
     fun displayUser(username: String): User{
         // array of columns to fetch
-        val columns = arrayOf(COLUMN_USERNAME,COLUMN_NAME,COLUMN_EMAIL,COLUMN_CITY,COLUMN_PASSWORD)
+        val columns = arrayOf(COLUMN_ID,COLUMN_USERNAME,COLUMN_NAME,COLUMN_EMAIL,COLUMN_CITY,COLUMN_PASSWORD,COLUMN_CPASSWORD)
         // selection argument
         val selectionArgs = arrayOf(username)
         val db = this.readableDatabase
@@ -83,15 +83,15 @@ public class LoginDBAdapter(context: Context)
         if (cursor != null && cursor.count > 0) {
             cursor.moveToFirst()
 
-//            user = User(
-//                id = cursor.getString(cursor.getColumnIndex(COLUMN_ID)).toInt(),
-//                username = cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME)),
-//                name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME)),
-//                email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)),
-//                city = cursor.getString(cursor.getColumnIndex(COLUMN_CITY)),
-//                password = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD)),
-//                cpassword = cursor.getString(cursor.getColumnIndex(COLUMN_CPASSWORD))
-//            )
+            user = User(
+                id = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ID)).toInt(),
+                username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME)),
+                name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)),
+                email = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EMAIL)),
+                city = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CITY)),
+                password = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD)),
+                cpassword = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CPASSWORD))
+            )
             cursor.close()
             db.close()
 

@@ -14,14 +14,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         btlogin.setOnClickListener {
 
-            val fileToWrite = "LoggedInUsername"
-            val textToWrite: String = etlusername.text.toString()
-            this.openFileOutput(fileToWrite, Context.MODE_PRIVATE).
-                use { output ->
-                    output.write(textToWrite.toByteArray())
-            }
+//            val fileToWrite = "LoggedInUsername"
+           val textToWrite: String = etlusername.text.toString()
+//            this.openFileOutput(fileToWrite, Context.MODE_PRIVATE).
+//                use { output ->
+//                    output.write(textToWrite.toByteArray())
+//            }
+
 
             val intent= Intent(this, ProfileActivity::class.java)
+            intent.putExtra("user_name",textToWrite)
             startActivity(intent)
 //            finish()
         }
