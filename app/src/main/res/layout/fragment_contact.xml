@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="218dp"
         android:layout_height="179dp"
-        android:text="Contact fragment"
+        android:text="Contact FSE GRP1 Team for any queries !"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
