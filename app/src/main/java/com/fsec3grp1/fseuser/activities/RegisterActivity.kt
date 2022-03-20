@@ -45,8 +45,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             Toast.makeText(applicationContext,"Provide all Inputs", Toast.LENGTH_SHORT).show()
         }
         else {
-//                println(etUsername.text.toString())
-//                println(etPassword.text.toString())
             var user = User(
                 username = etusername!!.text.toString().trim(),
                 name = etname!!.text.toString().trim(),
@@ -59,16 +57,16 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             check = loginDBAdapter.insertUser(user)
         }
         if (check != -1) {
-            Toast.makeText(applicationContext, "Successfully Inserted", Toast.LENGTH_LONG).show()
-            etusername.hint="username"
+            Toast.makeText(applicationContext, "Registered Successfully !", Toast.LENGTH_LONG).show()
+            etusername.setText("")
             etname.setText("")
             etemail.setText("")
             etcity.setText("")
             etpassword.setText("")
             etcpassword.setText("")
-            etusername.requestFocus()
-            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(etusername, InputMethodManager.SHOW_IMPLICIT)
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
