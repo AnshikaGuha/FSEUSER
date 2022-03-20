@@ -5,16 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
 import com.fsec3grp1.fseuser.User
-import kotlinx.android.synthetic.main.activity_forgot.*
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_profile.imlogout
-import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_update_profile.*
 
 class UpdateProfileActivity : AppCompatActivity() {
@@ -47,7 +41,13 @@ class UpdateProfileActivity : AppCompatActivity() {
             finish()
         }
 
-        imlogout.setOnClickListener {
+        tvhomepage.setOnClickListener {
+            val intent = Intent(this, HomepageActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        tvlogout.setOnClickListener {
             val fileToWrite = "LoggedInUsername"
             val textToWrite = ""
             this.openFileOutput(fileToWrite, Context.MODE_PRIVATE).

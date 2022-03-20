@@ -8,8 +8,6 @@ import com.fsec3grp1.fseuser.fragments.AboutFragment
 import com.fsec3grp1.fseuser.fragments.ContactFragment
 import com.fsec3grp1.fseuser.fragments.HelpFragment
 import kotlinx.android.synthetic.main.activity_homepage.*
-import kotlinx.android.synthetic.main.activity_homepage.tvlogin
-import kotlinx.android.synthetic.main.activity_register.*
 
 class HomepageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +43,14 @@ class HomepageActivity : AppCompatActivity() {
             }
         }
 
-        tvlogin.setOnClickListener {
+        btlogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btregister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }

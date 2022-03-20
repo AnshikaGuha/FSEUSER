@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HelpFragment"
-    >
+    tools:context=".fragments.HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="218dp"
         android:layout_height="179dp"
+        android:textColor="@color/white"
         android:text="FSE GRP1 support you for any issues !"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

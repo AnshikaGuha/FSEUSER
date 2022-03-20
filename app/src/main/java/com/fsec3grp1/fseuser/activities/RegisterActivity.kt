@@ -2,12 +2,10 @@ package com.fsec3grp1.fseuser.activities
 
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_register.*
 import android.content.Intent
-//import com.fsec3grp1.fseuser.UserLogin
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
 import com.fsec3grp1.fseuser.User
@@ -26,6 +24,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
 
         tvlogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        tvhomepage.setOnClickListener {
+            val intent = Intent(this, HomepageActivity::class.java)
             startActivity(intent)
             finish()
         }
