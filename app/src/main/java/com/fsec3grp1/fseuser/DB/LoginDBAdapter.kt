@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.fsec3grp1.fseuser.User
 
-private val DB_NAME = "userlogin.db"
+private val DB_NAME = "FSEUsers.db"
 private val DB_VERSION = 2
 
 public class LoginDBAdapter(context: Context)

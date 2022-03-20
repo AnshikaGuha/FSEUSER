@@ -19,12 +19,7 @@ class UpdateProfileActivity : AppCompatActivity(), View.OnClickListener {
     private val uactivity = this@UpdateProfileActivity
     private lateinit var loginDBAdapter:LoginDBAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_update_profile)
-
-
-        fun username(){
+    fun username() {
         val fileToRead = "LoggedInUsername"
         this.openFileInput(fileToRead).use { stream ->
             val text = stream.bufferedReader().use {
@@ -32,8 +27,11 @@ class UpdateProfileActivity : AppCompatActivity(), View.OnClickListener {
             }
             tvusername.text = "Dear $text please update your Details."
         }
-        }
-        println(username())
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_update_profile)
 
         imlogout.setOnClickListener {
             val intent6 = Intent(this, LoginActivity::class.java)

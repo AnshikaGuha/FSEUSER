@@ -32,6 +32,7 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
 //            Log.i("user_name",user_pname.toString())
 //        }
         tvwmessage.text = "Welcome $mUserName"
+
         imlogout.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -56,13 +57,10 @@ class ProfileActivity : AppCompatActivity(), View.OnClickListener   {
     }
 
     private fun displaySingleuser() {
-
         val userToDisplay: User = loginDBAdapter.displayUser(mUserName)
         tvFullname.text = tvFullname.text.toString()+userToDisplay.name
         tvCity.text = tvCity.text.toString()+userToDisplay.city
         tvEmail.text = tvEmail.text.toString()+userToDisplay.email
-
-
     }
 
 }
