@@ -15,39 +15,45 @@
         app:layout_constraintBottom_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvregister"
+            android:id="@+id/tvupdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="REGISTER"
+            android:text="UPDATE PROFILE INFORMATION"
             android:textSize="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="40dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textusername"
+            app:layout_constraintBottom_toTopOf="@+id/tvusername"
             />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textusername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintStart_toStartOf="parent"
+        <ImageView
+            android:id="@+id/imlogout"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logout"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvregister"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/tvupdate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.024" />
+
+        <TextView
+            android:id="@+id/tvusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="USERNAME"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/textname"
-            >
-            <EditText
-                android:id="@+id/etusername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="username"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/tvupdate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textname"
@@ -58,11 +64,11 @@
             android:layout_marginBottom="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textusername"
+            app:layout_constraintTop_toBottomOf="@+id/tvusername"
             app:layout_constraintBottom_toTopOf="@+id/textemail">
 
             <EditText
-                android:id="@+id/etname"
+                android:id="@+id/etuname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Full Name"
@@ -82,7 +88,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textcity">
 
             <EditText
-                android:id="@+id/etemail"
+                android:id="@+id/etuemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"/>
@@ -102,7 +108,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textpassword">
 
             <EditText
-                android:id="@+id/etcity"
+                android:id="@+id/etucity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="City" />
@@ -115,14 +121,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textcity"
-            app:layout_constraintBottom_toTopOf="@+id/textcpassword">
+            app:layout_constraintBottom_toTopOf="@+id/btsubmit">
 
             <EditText
-                android:id="@+id/etpassword"
+                android:id="@+id/etupassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -130,47 +135,18 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textcpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textpassword"
-            app:layout_constraintBottom_toTopOf="@+id/btregister">
-
-            <EditText
-                android:id="@+id/etcpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Confirm password"
-                android:inputType="textPassword" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btregister"
+            android:id="@+id/btsubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textcpassword"
-            app:layout_constraintBottom_toTopOf="@+id/tvlogin"
-            android:text="Register"/>
-
-        <TextView
-            android:id="@+id/tvlogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btregister"
+            app:layout_constraintTop_toBottomOf="@+id/textpassword"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Already Registered?"/>
+            android:text="SUBMIT"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

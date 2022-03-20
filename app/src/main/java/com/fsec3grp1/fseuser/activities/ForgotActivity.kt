@@ -1,4 +1,4 @@
-package com.fsec3grp1.fseuser
+package com.fsec3grp1.fseuser.activities
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,8 @@ import kotlinx.android.synthetic.main.activity_forgot.*
 import android.content.Intent
 //import com.fsec3grp1.fseuser.UserLogin
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
+import com.fsec3grp1.fseuser.R
+import com.fsec3grp1.fseuser.User
 import kotlinx.android.synthetic.main.activity_forgot.tvlogin
 import kotlinx.android.synthetic.main.activity_register.*
 

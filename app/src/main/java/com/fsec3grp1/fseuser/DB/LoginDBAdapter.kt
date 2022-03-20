@@ -62,6 +62,43 @@ public class LoginDBAdapter(context: Context)
         db.close()
         return returnCheck
     }
+    fun displayUser(username: String): User{
+        // array of columns to fetch
+        val columns = arrayOf(COLUMN_USERNAME,COLUMN_NAME,COLUMN_EMAIL,COLUMN_CITY,COLUMN_PASSWORD)
+        // selection argument
+        val selectionArgs = arrayOf(username)
+        val db = this.readableDatabase
+        println(username)
+        // query the user table
+        val cursor = db.query(
+            TABLE_LOGIN,                //Table to query
+            columns,                    //columns to return
+            "$COLUMN_USERNAME = ?",  //columns for the WHERE clause
+            selectionArgs,             //The values for the WHERE clause
+            null,               //group the rows
+            null,                //filter by row groups
+            null                //The sort order
+        )
+        var user = User(id=-1,username = "",name = "",email = "",city = "",password = "",cpassword = "")
+        if (cursor != null && cursor.count > 0) {
+            cursor.moveToFirst()
+
+//            user = User(
+//                id = cursor.getString(cursor.getColumnIndex(COLUMN_ID)).toInt(),
+//                username = cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME)),
+//                name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME)),
+//                email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)),
+//                city = cursor.getString(cursor.getColumnIndex(COLUMN_CITY)),
+//                password = cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD)),
+//                cpassword = cursor.getString(cursor.getColumnIndex(COLUMN_CPASSWORD))
+//            )
+            cursor.close()
+            db.close()
+
+        }
+        return user
+
+    }
 
     fun updateUser(userLogin: User): Int{
         val db = this.writableDatabase
@@ -80,5 +117,14 @@ public class LoginDBAdapter(context: Context)
         db.close()
         return returnCheck
     }
+
+//    fun deleteUser(userID: String): Int {
+//        val db = this.writableDatabase
+//        var returnCheck: Int = -1
+//        // delete user record by id
+//        returnCheck = db.delete(TABLE_LOGIN, "$COLUMN_ID = ?", arrayOf(userID))
+//        db.close()
+//        return returnCheck
+//    }
 
 }

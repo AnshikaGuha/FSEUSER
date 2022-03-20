@@ -1,4 +1,4 @@
-package com.fsec3grp1.fseuser
+package com.fsec3grp1.fseuser.activities
 
 import android.content.Context
 import android.content.Intent
@@ -21,18 +21,23 @@ class LoginActivity : AppCompatActivity() {
                     output.write(textToWrite.toByteArray())
             }
 
-            val intent= Intent(this,ProfileActivity::class.java)
+            val intent= Intent(this, ProfileActivity::class.java)
             startActivity(intent)
 //            finish()
         }
         tvsignup.setOnClickListener {
-            val intent2=Intent(this,RegisterActivity::class.java)
-            startActivity(intent2)
+            val intent=Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
             finish()
         }
         tvfpassword.setOnClickListener {
-            val intent4 = Intent(this,ForgotActivity::class.java)
-            startActivity(intent4)
+            val intent = Intent(this, ForgotActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        tvhomepage.setOnClickListener {
+            val intent = Intent(this, HomepageActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
