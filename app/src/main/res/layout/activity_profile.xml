@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_background"
     tools:context=".activities.ProfileActivity">
 
     <!--    android:layout_marginTop="100dp"-->
@@ -14,7 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:text="Welcome username"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30dp" />
 
     <ImageView
@@ -32,6 +33,7 @@
         android:layout_marginStart="20dp"
         android:gravity="start"
         android:text="Profile Information"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:layout_marginTop="30dp"
         android:layout_below="@id/tvwmessage"/>
@@ -39,6 +41,7 @@
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:text="Email: "
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_marginTop="5dp"
         android:layout_marginStart="30dp"
@@ -48,6 +51,7 @@
         android:id="@+id/tvFullname"
         android:layout_width="wrap_content"
         android:text="Full Name: "
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_marginTop="5dp"
         android:layout_marginStart="30dp"
@@ -57,6 +61,7 @@
         android:id="@+id/tvCity"
         android:layout_width="wrap_content"
         android:text="City: "
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_marginTop="5dp"
         android:layout_marginStart="30dp"
