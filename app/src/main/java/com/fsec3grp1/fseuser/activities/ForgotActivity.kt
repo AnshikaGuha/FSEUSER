@@ -47,7 +47,7 @@ class ForgotActivity : AppCompatActivity(){
         else {
             user = loginDBAdapter.displayUser(username)
             val match = (email == user.email)
-            if(match) {
+            if(!match) {
                 Toast.makeText(applicationContext, "Username & email doesn't match !", Toast.LENGTH_LONG).show()
             }
             return match

@@ -47,7 +47,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
         if (etusername.text.trim().isEmpty() || etname.text.trim().isEmpty() || etemail.text.trim().isEmpty() || etcity.text.trim().isEmpty() || etpassword.text.trim().isEmpty() || etcpassword.text.trim().isEmpty()) {
             Toast.makeText(applicationContext,"Provide all inputs !", Toast.LENGTH_LONG).show()
         }
-        else if(etpassword.text != etcpassword.text) {
+        else if(etpassword.text.toString() != etcpassword.text.toString()) {
             Toast.makeText(applicationContext,"Both passwords are not same !", Toast.LENGTH_LONG).show()
         }
         else {
