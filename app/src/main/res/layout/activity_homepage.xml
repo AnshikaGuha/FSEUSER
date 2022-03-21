@@ -7,11 +7,11 @@
     android:background="@drawable/activity_background"
     tools:context=".activities.HomepageActivity">
 
-    <TextView
-        android:id="@+id/tvlhomepage"
+    <ImageView
+        android:id="@+id/tvhomepage"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:drawableStart="@drawable/home"
+        android:src="@drawable/logo"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,86 +21,84 @@
         app:layout_constraintVertical_bias="0.086" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvappname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:text="FSE User"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/bthelp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvlhomepage"
-        app:layout_constraintVertical_bias="0.455" />
-
-    <Button
-        android:id="@+id/bthelp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HELP"
-        app:layout_constraintBottom_toTopOf="@+id/frag"
-        app:layout_constraintEnd_toStartOf="@+id/btcontact"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toEndOf="@+id/btabout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
+        app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
+        app:layout_constraintVertical_bias="0.293" />
 
     <Button
         android:id="@+id/btabout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:text="ABOUT"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="44dp"
+        android:background="@drawable/about"
         app:layout_constraintBottom_toTopOf="@+id/frag"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
+        app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
+        app:layout_constraintVertical_bias="0.861" />
+
+    <Button
+        android:id="@+id/bthelp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/help"
+        app:layout_constraintBottom_toTopOf="@+id/frag"
+        app:layout_constraintEnd_toStartOf="@+id/btcontact"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toEndOf="@+id/btabout"
+        app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
+        app:layout_constraintVertical_bias="0.861" />
 
     <Button
         android:id="@+id/btcontact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:text="CONTACT"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/contact"
         app:layout_constraintBottom_toTopOf="@+id/frag"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
-
-    <FrameLayout
-        android:id="@+id/frag"
-        android:layout_width="234dp"
-        android:layout_height="186dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.672">
-
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
+        app:layout_constraintVertical_bias="0.861" />
 
     <Button
         android:id="@+id/btlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btregister"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.694"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frag"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintTop_toBottomOf="@+id/tvappname"
+        app:layout_constraintVertical_bias="0.084" />
 
     <Button
         android:id="@+id/btregister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
-        android:text="REGISTER"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="116dp"
+        android:background="@drawable/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frag"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintTop_toBottomOf="@+id/tvappname"
+        app:layout_constraintVertical_bias="0.081" />
 
+    <FrameLayout
+        android:id="@+id/frag"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
 </androidx.constraintlayout.widget.ConstraintLayout>
