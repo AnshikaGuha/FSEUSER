@@ -1,7 +1,6 @@
 package com.fsec3grp1.fseuser.activities
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_forgot.*
@@ -11,9 +10,8 @@ import com.fsec3grp1.fseuser.R
 import com.fsec3grp1.fseuser.model.User
 import kotlinx.android.synthetic.main.activity_forgot.tvlogin
 import kotlinx.android.synthetic.main.activity_forgot.tvhomepage
-import kotlinx.android.synthetic.main.activity_register.*
 
-class ForgotActivity : AppCompatActivity(), View.OnClickListener  {
+class ForgotActivity : AppCompatActivity(){
 
     private val fpactivity = this@ForgotActivity
     private lateinit var loginDBAdapter:LoginDBAdapter
@@ -22,12 +20,11 @@ class ForgotActivity : AppCompatActivity(), View.OnClickListener  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot)
 
-        btfpsubmit!!.setOnClickListener(this)
         loginDBAdapter = LoginDBAdapter(fpactivity)
 
         tvlogin.setOnClickListener {
-            val intent5 = Intent(this, LoginActivity::class.java)
-            startActivity(intent5)
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
             finish()
         }
 
@@ -36,33 +33,58 @@ class ForgotActivity : AppCompatActivity(), View.OnClickListener  {
             startActivity(intent)
             finish()
         }
-    }
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.btfpsubmit -> updateUser()
+
+        btfpsubmit.setOnClickListener {
+
+            if(changePasswordValidation()) {
+                updateUser()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+//                finish()
+                Toast.makeText(this, "Password Successfully Changed", Toast.LENGTH_LONG).show()
+            }
+            else {
+                Toast.makeText( this, "Username or email is incorrect !", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 
-    private fun updateUser() {
-        var check : Int
-
-        if (etfusername.text.toString().isEmpty() || etfpassword.text.toString().isEmpty()) {
-            Toast.makeText(applicationContext, "Please enter the details",Toast.LENGTH_SHORT).show()
+    private fun changePasswordValidation(): Boolean {
+        val username = etfusername.text.toString()
+        val email = etfemail.text.toString()
+        val password = etfpassword.text.toString()
+        if(username.isEmpty()|| email.isEmpty() || password.isEmpty()) {
+            return false
+            Toast.makeText(this,"fields cannot be empty",Toast.LENGTH_LONG).show()
         }
         else {
-            var user = User(
-                username = etfusername.text.toString(),
-                password = etfpassword.text.toString(),
-                name = etname.text.toString(),
-                email = etemail.text.toString(),
-                city = etcity.text.toString())
-            check = loginDBAdapter.updateUser(user)
+            val user: User = loginDBAdapter.displayUser(username)
+            return email == user.email
+        }
+    }
+//        val funame = R.id.etfusername.toString()
+//        val userToDisplay: User = loginDBAdapter.displayUser(funame)
+//        val fname = userToDisplay.name
+//        val fcity = userToDisplay.city
+//        val fcpassword = userToDisplay.cpassword
 
-            if (check > 0) {
-                Toast.makeText(applicationContext, "Details updated", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(applicationContext, "Cannot Update, something went wrong!!",Toast.LENGTH_LONG).show()
-            }
+    private fun updateUser() {
+        val check : Int
+        val user = User(
+            username = etfusername.text.toString(),
+            name = "",
+            email = etfemail.text.toString(),
+            city = "",
+            password = etfpassword.text.toString()
+        )
+        check = loginDBAdapter.updateUser(user)
+
+        if (check > 0) {
+            Toast.makeText(applicationContext, "Details updated", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(applicationContext, "Cannot Update, something went wrong!!", Toast.LENGTH_LONG).show()
         }
     }
 
