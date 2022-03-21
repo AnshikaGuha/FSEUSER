@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/activity_background"
     tools:context=".activities.ProfileActivity">
-
     <TextView
         android:id="@+id/tvhomepage"
         android:layout_width="64dp"
@@ -19,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/tvlogout"
         android:layout_width="wrap_content"
@@ -31,7 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/tvwmessage"
         android:layout_width="wrap_content"
@@ -45,7 +42,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tvprofile"
         android:layout_width="wrap_content"
@@ -60,7 +56,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvwmessage" />
-
     <TextView
         android:id="@+id/tvFullname"
         android:layout_width="wrap_content"
@@ -74,7 +69,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvprofile" />
-
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
@@ -88,7 +82,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFullname" />
-
     <TextView
         android:id="@+id/tvCity"
         android:layout_width="wrap_content"
@@ -102,7 +95,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
-
     <Button
         android:id="@+id/btupdate"
         android:layout_width="wrap_content"
@@ -117,11 +109,4 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCity" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

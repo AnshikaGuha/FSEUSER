@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AboutFragment">
-
     <TextView
-        android:layout_width="218dp"
-        android:layout_height="179dp"
+        android:layout_width="220dp"
+        android:layout_height="180dp"
+        android:textAlignment="center"
         android:text="Hello! I manage your data here :-)"
         android:textSize="20sp"
         android:textColor="@color/white"
@@ -17,5 +17,4 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

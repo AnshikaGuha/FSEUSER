@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".activities.RegisterActivity"
     android:background="@drawable/activity_background">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="parent">
-
+        app:layout_constraintBottom_toTopOf="parent" >
         <TextView
             android:id="@+id/tvhomepage"
             android:layout_width="64dp"
@@ -27,7 +25,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/tvlogout"
             android:layout_width="wrap_content"
@@ -39,7 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/tvupdate"
             android:layout_width="wrap_content"
@@ -52,9 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tvusername"
-            />
-
+            app:layout_constraintBottom_toTopOf="@+id/tvusername" />
         <TextView
             android:id="@+id/tvusername"
             android:layout_width="wrap_content"
@@ -67,7 +61,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tvupdate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textname"
             android:layout_width="match_parent"
@@ -78,18 +71,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvusername"
-            app:layout_constraintBottom_toTopOf="@+id/textemail">
-
+            app:layout_constraintBottom_toTopOf="@+id/textemail" >
             <EditText
                 android:id="@+id/etuname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_background"
                 android:textColor="@color/white"
-                android:hint="Full Name"
-                />
+                android:hint="Full Name" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textemail"
             android:layout_width="match_parent"
@@ -100,18 +90,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textname"
-            app:layout_constraintBottom_toTopOf="@+id/textcity">
-
+            app:layout_constraintBottom_toTopOf="@+id/textcity" >
             <EditText
                 android:id="@+id/etuemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_background"
                 android:textColor="@color/white"
-                android:hint="Email"/>
-
+                android:hint="Email" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textcity"
             android:layout_width="match_parent"
@@ -122,8 +109,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textemail"
-            app:layout_constraintBottom_toTopOf="@+id/textpassword">
-
+            app:layout_constraintBottom_toTopOf="@+id/textpassword" >
             <EditText
                 android:id="@+id/etucity"
                 android:layout_width="match_parent"
@@ -131,9 +117,7 @@
                 android:background="@drawable/edit_background"
                 android:textColor="@color/white"
                 android:hint="City" />
-
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textpassword"
             android:layout_width="match_parent"
@@ -143,8 +127,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textcity"
-            app:layout_constraintBottom_toTopOf="@+id/btupdateprofile">
-
+            app:layout_constraintBottom_toTopOf="@+id/btupdateprofile" >
             <EditText
                 android:id="@+id/etupassword"
                 android:layout_width="match_parent"
@@ -152,10 +135,8 @@
                 android:background="@drawable/edit_background"
                 android:textColor="@color/white"
                 android:hint="Password"
-                android:inputType="textPassword"/>
-
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <Button
             android:id="@+id/btupdateprofile"
             android:layout_width="match_parent"
@@ -170,7 +151,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/button_background"
             android:textAllCaps="false"
-            android:text="Update"/>
-
+            android:text="Update" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

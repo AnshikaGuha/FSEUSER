@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/activity_background"
     tools:context=".activities.LoginActivity">
-
     <TextView
         android:id="@+id/tvhomepage"
         android:layout_width="64dp"
@@ -19,26 +18,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true">
-
+        android:layout_centerVertical="true" >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:orientation="vertical">
-
+            android:orientation="vertical" >
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:src="@drawable/logo" />
-
             <EditText
                 android:id="@+id/etlusername"
                 android:layout_width="match_parent"
@@ -51,10 +46,8 @@
                 android:drawablePadding="20dp"
                 android:hint="Username"
                 android:padding="10dp"
-                android:textColor="@color/white">
-
+                android:textColor="@color/white" >
             </EditText>
-
             <EditText
                 android:id="@+id/etlpassword"
                 android:layout_width="match_parent"
@@ -68,10 +61,8 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:textColor="@color/white">
-
+                android:textColor="@color/white" >
             </EditText>
-
             <TextView
                 android:id="@+id/tvfpassword"
                 android:layout_width="wrap_content"
@@ -80,9 +71,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:padding="10dp"
-                android:text="Forgot Password?"
+                android:text="Forgot password?"
                 android:textColor="@color/white" />
-
             <Button
                 android:id="@+id/btlogin"
                 android:layout_width="match_parent"
@@ -95,7 +85,6 @@
                 android:text="Login"
                 android:textAllCaps="false"
                 android:textSize="20sp" />
-
             <TextView
                 android:id="@+id/tvsignup"
                 android:layout_width="wrap_content"
@@ -104,10 +93,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:padding="10dp"
-                android:text="Register Here"
+                android:text="Register here!"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
-
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

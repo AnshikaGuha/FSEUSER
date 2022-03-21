@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/activity_background"
     tools:context=".activities.HomepageActivity">
-
     <ImageView
         android:id="@+id/tvhomepage"
         android:layout_width="64dp"
@@ -19,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.086" />
-
     <TextView
         android:id="@+id/tvappname"
         android:layout_width="wrap_content"
@@ -33,7 +31,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
         app:layout_constraintVertical_bias="0.293" />
-
     <Button
         android:id="@+id/btabout"
         android:layout_width="64dp"
@@ -44,7 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
         app:layout_constraintVertical_bias="0.861" />
-
     <Button
         android:id="@+id/bthelp"
         android:layout_width="64dp"
@@ -56,7 +52,6 @@
         app:layout_constraintStart_toEndOf="@+id/btabout"
         app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
         app:layout_constraintVertical_bias="0.861" />
-
     <Button
         android:id="@+id/btcontact"
         android:layout_width="64dp"
@@ -67,7 +62,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvhomepage"
         app:layout_constraintVertical_bias="0.861" />
-
     <Button
         android:id="@+id/btlogin"
         android:layout_width="64dp"
@@ -79,7 +73,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvappname"
         app:layout_constraintVertical_bias="0.084" />
-
     <Button
         android:id="@+id/btregister"
         android:layout_width="64dp"
@@ -90,7 +83,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvappname"
         app:layout_constraintVertical_bias="0.081" />
-
     <FrameLayout
         android:id="@+id/frag"
         android:layout_width="match_parent"
