@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
 import com.fsec3grp1.fseuser.model.User
-import com.fsec3grp1.fseuser.utils.Constants.Companion.LOGGED_IN_USER_FILENAME
+import com.fsec3grp1.fseuser.utils.Constants
 import kotlinx.android.synthetic.main.activity_update_profile.*
 
 class UpdateProfileActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class UpdateProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_update_profile)
 
         try {
-            this.openFileInput(LOGGED_IN_USER_FILENAME).use { stream ->
+            this.openFileInput(Constants.LOGGED_IN_USER_FILENAME).use { stream ->
                 mUserName = stream.bufferedReader().use {
                     it.readLine()
                 }
@@ -32,7 +32,7 @@ class UpdateProfileActivity : AppCompatActivity() {
             }
         }
         catch(e: java.io.FileNotFoundException) {
-            Log.e("file not found: ", e.toString())
+            Log.e("File not found: ", e.toString())
         }
 
         if(mUserName.isEmpty()) {
@@ -49,7 +49,7 @@ class UpdateProfileActivity : AppCompatActivity() {
 
         tvlogout.setOnClickListener {
             val textToWrite = ""
-            this.openFileOutput(LOGGED_IN_USER_FILENAME, Context.MODE_PRIVATE).
+            this.openFileOutput(Constants.LOGGED_IN_USER_FILENAME, Context.MODE_PRIVATE).
             use { output ->
                 output.write(textToWrite.toByteArray())
             }

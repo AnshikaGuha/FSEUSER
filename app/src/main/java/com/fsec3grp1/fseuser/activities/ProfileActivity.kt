@@ -31,7 +31,7 @@ class ProfileActivity : AppCompatActivity()   {
             }
         }
         catch(e: java.io.FileNotFoundException) {
-            Log.e("file not found: ", e.toString())
+            Log.e("File not found: ", e.toString())
         }
 
         if(mUserName.isEmpty()) {
@@ -47,9 +47,8 @@ class ProfileActivity : AppCompatActivity()   {
         }
 
         tvlogout.setOnClickListener {
-            val fileToWrite = "LoggedInUsername"
             val textToWrite = ""
-            this.openFileOutput(fileToWrite, Context.MODE_PRIVATE).
+            this.openFileOutput(Constants.LOGGED_IN_USER_FILENAME, Context.MODE_PRIVATE).
             use { output ->
                 output.write(textToWrite.toByteArray())
             }
