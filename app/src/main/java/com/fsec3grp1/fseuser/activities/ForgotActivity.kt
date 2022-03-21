@@ -44,12 +44,11 @@ class ForgotActivity : AppCompatActivity(), View.OnClickListener  {
     }
 
     private fun updateUser() {
-        var check : Int
-
         if (etfusername.text.toString().isEmpty() || etfpassword.text.toString().isEmpty()) {
             Toast.makeText(applicationContext, "Please enter the details",Toast.LENGTH_SHORT).show()
         }
         else {
+            var check : Int
             var user = User(
                 username = etfusername.text.toString(),
                 password = etfpassword.text.toString(),

@@ -28,7 +28,7 @@ public class LoginDBAdapter(context: Context)
             + COLUMN_NAME + " TEXT NOT NULL, "
             + COLUMN_EMAIL + " TEXT NOT NULL, "
             + COLUMN_CITY + " TEXT NOT NULL, "
-            + COLUMN_PASSWORD + " TEXT NOT NULL, ")
+            + COLUMN_PASSWORD + " TEXT NOT NULL)")
 
     // drop table sql query
     private val dropTable = "DROP TABLE IF EXISTS $TABLE_LOGIN"
