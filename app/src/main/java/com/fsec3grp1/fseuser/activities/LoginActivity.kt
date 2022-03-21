@@ -52,12 +52,12 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
             else {
-                Toast.makeText( this, "Wrong username or password !", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Wrong username or password !", Toast.LENGTH_LONG).show()
             }
         }
 
         tvsignup.setOnClickListener {
-            val intent=Intent(this, RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -81,6 +81,7 @@ class LoginActivity : AppCompatActivity() {
         val username = etlusername.text.toString()
         val password = etlpassword.text.toString()
         if(username.isEmpty() || password.isEmpty()) {
+            Toast.makeText(applicationContext, "Username or password cannot be empty !", Toast.LENGTH_LONG).show()
             return false
         }
         else {

@@ -12,42 +12,28 @@ import kotlinx.android.synthetic.main.activity_forgot.tvlogin
 import kotlinx.android.synthetic.main.activity_forgot.tvhomepage
 
 class ForgotActivity : AppCompatActivity(){
-
     private val fpactivity = this@ForgotActivity
-    private lateinit var loginDBAdapter:LoginDBAdapter
-
+    private lateinit var loginDBAdapter: LoginDBAdapter
+    private lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot)
-
-        loginDBAdapter = LoginDBAdapter(fpactivity)
-
         tvlogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
-
         tvhomepage.setOnClickListener {
             val intent = Intent(this, HomepageActivity::class.java)
             startActivity(intent)
             finish()
         }
-
         btfpsubmit.setOnClickListener {
-
             if(changePasswordValidation()) {
                 updateUser()
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-//                finish()
-                Toast.makeText(this, "Password Successfully Changed", Toast.LENGTH_LONG).show()
             }
-            else {
-                Toast.makeText( this, "Username or email is incorrect !", Toast.LENGTH_SHORT).show()
-            }
-
         }
+        loginDBAdapter = LoginDBAdapter(fpactivity)
     }
 
     private fun changePasswordValidation(): Boolean {
@@ -55,36 +41,30 @@ class ForgotActivity : AppCompatActivity(){
         val email = etfemail.text.toString()
         val password = etfpassword.text.toString()
         if(username.isEmpty()|| email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(applicationContext,"Provide all inputs !",Toast.LENGTH_LONG).show()
             return false
-            Toast.makeText(this,"fields cannot be empty",Toast.LENGTH_LONG).show()
         }
         else {
-            val user: User = loginDBAdapter.displayUser(username)
-            return email == user.email
+            user = loginDBAdapter.displayUser(username)
+            val match = (email == user.email)
+            if(match) {
+                Toast.makeText(applicationContext, "Username & email doesn't match !", Toast.LENGTH_LONG).show()
+            }
+            return match
         }
     }
-//        val funame = R.id.etfusername.toString()
-//        val userToDisplay: User = loginDBAdapter.displayUser(funame)
-//        val fname = userToDisplay.name
-//        val fcity = userToDisplay.city
-//        val fcpassword = userToDisplay.cpassword
 
     private fun updateUser() {
-        val check : Int
-        val user = User(
-            username = etfusername.text.toString(),
-            name = "",
-            email = etfemail.text.toString(),
-            city = "",
-            password = etfpassword.text.toString()
-        )
-        check = loginDBAdapter.updateUser(user)
-
+        user.password = etfpassword.text.toString().trim()
+        val check = loginDBAdapter.updateUser(user)
         if (check > 0) {
-            Toast.makeText(applicationContext, "Details updated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Password successfully changed !", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         else {
-            Toast.makeText(applicationContext, "Cannot Update, something went wrong!!", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Cannot update password, something went wrong !", Toast.LENGTH_LONG).show()
         }
     }
 

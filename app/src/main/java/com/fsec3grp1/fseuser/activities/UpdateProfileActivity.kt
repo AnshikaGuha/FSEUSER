@@ -10,7 +10,9 @@ import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
 import com.fsec3grp1.fseuser.model.User
 import com.fsec3grp1.fseuser.utils.Constants
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_update_profile.*
+import kotlinx.android.synthetic.main.activity_update_profile.tvhomepage
 
 class UpdateProfileActivity : AppCompatActivity() {
 
@@ -61,9 +63,6 @@ class UpdateProfileActivity : AppCompatActivity() {
 
         btupdateprofile.setOnClickListener {
             updateUser()
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-            finish()
         }
 
         loginDBAdapter = LoginDBAdapter(uactivity)
@@ -79,20 +78,27 @@ class UpdateProfileActivity : AppCompatActivity() {
     }
 
     private fun updateUser() {
-        var check : Int
-        var user = User(
-            username = mUserName,
-            name = etuname.text.toString(),
-            email = etuemail.text.toString(),
-            city = etucity.text.toString(),
-            password = etupassword.text.toString())
-        check = loginDBAdapter.updateUser(user)
-
-        if (check > 0) {
-            Toast.makeText(applicationContext, "Details updated", Toast.LENGTH_SHORT).show()
+        var check : Int = -1
+        if (etuname.text.trim().isEmpty() || etuemail.text.trim().isEmpty() || etucity.text.trim().isEmpty() || etupassword.text.trim().isEmpty()) {
+            Toast.makeText(applicationContext,"Provide all inputs !", Toast.LENGTH_LONG).show()
         }
         else {
-            Toast.makeText(applicationContext, "Cannot Update, something went wrong!!", Toast.LENGTH_LONG).show()
+            var user = User(
+                username = mUserName,
+                name = etuname.text.toString().trim(),
+                email = etuemail.text.toString().trim(),
+                city = etucity.text.toString().trim(),
+                password = etupassword.text.toString().trim())
+            check = loginDBAdapter.updateUser(user)
+        }
+        if (check > 0) {
+            Toast.makeText(applicationContext, "Details updated !", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        else {
+            Toast.makeText(applicationContext, "Cannot update, something went wrong!!", Toast.LENGTH_LONG).show()
         }
     }
 }

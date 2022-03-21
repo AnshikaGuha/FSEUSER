@@ -44,9 +44,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
     private fun addNewUser() {
         var check : Int = -1
 
-        if (etusername.text.trim().isEmpty() || etname.text.trim().isEmpty() || etemail.text.trim().isEmpty() || etcity.text.trim().isEmpty() || etpassword.text.trim().isEmpty() || etcpassword.text.trim().isEmpty())
-        {
-            Toast.makeText(applicationContext,"Provide all Inputs", Toast.LENGTH_SHORT).show()
+        if (etusername.text.trim().isEmpty() || etname.text.trim().isEmpty() || etemail.text.trim().isEmpty() || etcity.text.trim().isEmpty() || etpassword.text.trim().isEmpty() || etcpassword.text.trim().isEmpty()) {
+            Toast.makeText(applicationContext,"Provide all inputs !", Toast.LENGTH_LONG).show()
+        }
+        else if(etpassword.text != etcpassword.text) {
+            Toast.makeText(applicationContext,"Both passwords are not same !", Toast.LENGTH_LONG).show()
         }
         else {
             var user = User(
@@ -58,7 +60,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             check = loginDBAdapter.insertUser(user)
         }
         if (check != -1) {
-            Toast.makeText(applicationContext, "Registered Successfully !", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Registered successfully !", Toast.LENGTH_LONG).show()
             etusername.setText("")
             etname.setText("")
             etemail.setText("")
@@ -68,6 +70,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
+        }
+        else {
+            Toast.makeText(applicationContext, "Cannot registered, something went wrong !", Toast.LENGTH_LONG).show()
         }
     }
 }
