@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.fsec3grp1.fseuser.User
+import com.fsec3grp1.fseuser.model.User
 
 private val DB_NAME = "FSEUsers.db"
 private val DB_VERSION = 2

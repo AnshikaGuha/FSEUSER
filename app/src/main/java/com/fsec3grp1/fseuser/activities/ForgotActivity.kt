@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_forgot.*
 import android.content.Intent
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
-import com.fsec3grp1.fseuser.User
+import com.fsec3grp1.fseuser.model.User
 import kotlinx.android.synthetic.main.activity_forgot.tvlogin
 import kotlinx.android.synthetic.main.activity_forgot.tvhomepage
 import kotlinx.android.synthetic.main.activity_register.*

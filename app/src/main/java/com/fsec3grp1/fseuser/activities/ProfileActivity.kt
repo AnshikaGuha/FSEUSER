@@ -8,7 +8,8 @@ import android.content.Intent
 import android.util.Log
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
-import com.fsec3grp1.fseuser.User
+import com.fsec3grp1.fseuser.model.User
+import com.fsec3grp1.fseuser.utils.Constants
 
 class ProfileActivity : AppCompatActivity()   {
 
@@ -20,9 +21,8 @@ class ProfileActivity : AppCompatActivity()   {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val fileToRead = "LoggedInUsername"
         try {
-            this.openFileInput(fileToRead).use { stream ->
+            this.openFileInput(Constants.LOGGED_IN_USER_FILENAME).use { stream ->
                 mUserName = stream.bufferedReader().use {
                     it.readLine()
                 }

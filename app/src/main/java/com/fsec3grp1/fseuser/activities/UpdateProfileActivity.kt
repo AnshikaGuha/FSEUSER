@@ -8,7 +8,8 @@ import android.util.Log
 import android.widget.Toast
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
-import com.fsec3grp1.fseuser.User
+import com.fsec3grp1.fseuser.model.User
+import com.fsec3grp1.fseuser.utils.Constants.Companion.LOGGED_IN_USER_FILENAME
 import kotlinx.android.synthetic.main.activity_update_profile.*
 
 class UpdateProfileActivity : AppCompatActivity() {
@@ -21,9 +22,8 @@ class UpdateProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_profile)
 
-        val fileToRead = "LoggedInUsername"
         try {
-            this.openFileInput(fileToRead).use { stream ->
+            this.openFileInput(LOGGED_IN_USER_FILENAME).use { stream ->
                 mUserName = stream.bufferedReader().use {
                     it.readLine()
                 }
@@ -48,9 +48,8 @@ class UpdateProfileActivity : AppCompatActivity() {
         }
 
         tvlogout.setOnClickListener {
-            val fileToWrite = "LoggedInUsername"
             val textToWrite = ""
-            this.openFileOutput(fileToWrite, Context.MODE_PRIVATE).
+            this.openFileOutput(LOGGED_IN_USER_FILENAME, Context.MODE_PRIVATE).
             use { output ->
                 output.write(textToWrite.toByteArray())
             }

@@ -1,4 +1,4 @@
-package com.fsec3grp1.fseuser
+package com.fsec3grp1.fseuser.model
 
 data class User(var id: Int = -1,
                 var username: String,

@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import android.content.Intent
 import com.fsec3grp1.fseuser.DB.LoginDBAdapter
 import com.fsec3grp1.fseuser.R
-import com.fsec3grp1.fseuser.User
+import com.fsec3grp1.fseuser.model.User
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
 
