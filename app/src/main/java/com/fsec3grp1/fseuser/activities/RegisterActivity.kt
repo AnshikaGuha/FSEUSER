@@ -54,10 +54,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener  {
                 name = etname!!.text.toString().trim(),
                 email = etemail!!.text.toString().trim(),
                 city = etcity!!.text.toString().trim(),
-                password = etpassword!!.text.toString().trim(),
-                cpassword = etcpassword!!.text.toString().trim()
-            )
-
+                password = etpassword!!.text.toString().trim())
             check = loginDBAdapter.insertUser(user)
         }
         if (check != -1) {

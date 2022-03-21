@@ -5,5 +5,4 @@ data class User(var id: Int = -1,
                 var name: String,
                 var email: String,
                 var city: String,
-                var password: String,
-                var cpassword: String)
+                var password: String)

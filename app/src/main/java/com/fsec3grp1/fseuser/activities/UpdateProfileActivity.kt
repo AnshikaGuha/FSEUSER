@@ -85,9 +85,7 @@ class UpdateProfileActivity : AppCompatActivity() {
             name = etuname.text.toString(),
             email = etuemail.text.toString(),
             city = etucity.text.toString(),
-            password = etupassword.text.toString(),
-            cpassword = etupassword.text.toString()
-        )
+            password = etupassword.text.toString())
         check = loginDBAdapter.updateUser(user)
 
         if (check > 0) {

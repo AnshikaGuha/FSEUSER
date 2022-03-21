@@ -21,7 +21,6 @@ public class LoginDBAdapter(context: Context)
     private val COLUMN_EMAIL = "email"
     private val COLUMN_CITY = "city"
     private val COLUMN_PASSWORD = "password"
-    private val COLUMN_CPASSWORD = "cpassword"
 
     private val createTable = ("CREATE TABLE " + TABLE_LOGIN + "" + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -29,8 +28,7 @@ public class LoginDBAdapter(context: Context)
             + COLUMN_NAME + " TEXT NOT NULL, "
             + COLUMN_EMAIL + " TEXT NOT NULL, "
             + COLUMN_CITY + " TEXT NOT NULL, "
-            + COLUMN_PASSWORD + " TEXT NOT NULL, "
-            + COLUMN_CPASSWORD + " TEXT NOT NULL)")
+            + COLUMN_PASSWORD + " TEXT NOT NULL, ")
 
     // drop table sql query
     private val dropTable = "DROP TABLE IF EXISTS $TABLE_LOGIN"
@@ -56,15 +54,15 @@ public class LoginDBAdapter(context: Context)
         values.put(COLUMN_EMAIL, userLogin.email)
         values.put(COLUMN_CITY, userLogin.city)
         values.put(COLUMN_PASSWORD, userLogin.password)
-        values.put(COLUMN_CPASSWORD, userLogin.cpassword)
         // Inserting Row
         returnCheck = db.insert(TABLE_LOGIN, null, values).toInt()
         db.close()
         return returnCheck
     }
+
     fun displayUser(username: String): User {
         // array of columns to fetch
-        val columns = arrayOf(COLUMN_ID,COLUMN_USERNAME,COLUMN_NAME,COLUMN_EMAIL,COLUMN_CITY,COLUMN_PASSWORD,COLUMN_CPASSWORD)
+        val columns = arrayOf(COLUMN_ID,COLUMN_USERNAME,COLUMN_NAME,COLUMN_EMAIL,COLUMN_CITY,COLUMN_PASSWORD)
         // selection argument
         val selectionArgs = arrayOf(username)
         val db = this.readableDatabase
@@ -79,22 +77,18 @@ public class LoginDBAdapter(context: Context)
             null,                //filter by row groups
             null                //The sort order
         )
-        var user = User(id=-1,username = "",name = "",email = "",city = "",password = "",cpassword = "")
+        var user = User(id=-1, username = "", name = "", email = "", city = "", password = "")
         if (cursor != null && cursor.count > 0) {
             cursor.moveToFirst()
-
             user = User(
                 id = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ID)).toInt(),
                 username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME)),
                 name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)),
                 email = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EMAIL)),
                 city = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CITY)),
-                password = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD)),
-                cpassword = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CPASSWORD))
-            )
+                password = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD)))
             cursor.close()
             db.close()
-
         }
         return user
     }
@@ -102,14 +96,12 @@ public class LoginDBAdapter(context: Context)
     fun updateUser(user: User): Int {
         val db = this.writableDatabase
         var returnCheck: Int = -1
-
         val values = ContentValues()
         values.put(COLUMN_USERNAME, user.username)
         values.put(COLUMN_NAME, user.name)
         values.put(COLUMN_EMAIL, user.email)
         values.put(COLUMN_CITY, user.city)
         values.put(COLUMN_PASSWORD, user.password)
-        values.put(COLUMN_CPASSWORD, user.cpassword)
         // updating row
         returnCheck = db.update(TABLE_LOGIN, values, "$COLUMN_USERNAME = ?"
             ,arrayOf(user.username) )

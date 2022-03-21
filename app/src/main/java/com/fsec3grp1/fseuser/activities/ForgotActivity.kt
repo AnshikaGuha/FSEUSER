@@ -48,15 +48,14 @@ class ForgotActivity : AppCompatActivity(), View.OnClickListener  {
 
         if (etfusername.text.toString().isEmpty() || etfpassword.text.toString().isEmpty()) {
             Toast.makeText(applicationContext, "Please enter the details",Toast.LENGTH_SHORT).show()
-        } else {
+        }
+        else {
             var user = User(
                 username = etfusername.text.toString(),
                 password = etfpassword.text.toString(),
                 name = etname.text.toString(),
                 email = etemail.text.toString(),
-                city = etcity.text.toString(),
-                cpassword = etcpassword!!.text.toString()
-            )
+                city = etcity.text.toString())
             check = loginDBAdapter.updateUser(user)
 
             if (check > 0) {
