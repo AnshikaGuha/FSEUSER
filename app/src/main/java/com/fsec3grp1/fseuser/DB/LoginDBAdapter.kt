@@ -108,14 +108,4 @@ public class LoginDBAdapter(context: Context)
         db.close()
         return returnCheck
     }
-
-//    fun deleteUser(userID: String): Int {
-//        val db = this.writableDatabase
-//        var returnCheck: Int = -1
-//        // delete user record by id
-//        returnCheck = db.delete(TABLE_LOGIN, "$COLUMN_ID = ?", arrayOf(userID))
-//        db.close()
-//        return returnCheck
-//    }
-
 }
