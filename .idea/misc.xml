@@ -3,8 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Harika/AndroidStudioProjects/FSEUSER/app/src/main/res/layout/activity_profile.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/Harika/AndroidStudioProjects/FSEUSER/app/src/main/res/layout/activity_register.xml" value="0.12360688956433637" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/Home.xml" value="0.171" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/about.xml" value="0.159" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/activity_background.xml" value="0.135" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/button_background.xml" value="0.135" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/circle.xml" value="0.1" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/contact.xml" value="0.159" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/help.xml" value="0.159" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/home.xml" value="0.135" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/login.xml" value="0.159" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/login_background.xml" value="0.1" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/login_edit_background.xml" value="0.1045" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/logout.xml" value="0.12" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/profile.xml" value="0.188" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/drawable/register.xml" value="0.159" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/activity_forgot.xml" value="0.14432989690721648" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/activity_homepage.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/activity_profile.xml" value="0.22" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/activity_register.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/activity_update_profile.xml" value="0.1" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/fragment_about.xml" value="0.1" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/fragment_contact.xml" value="0.1" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/fragment_help.xml" value="0.14895833333333333" />
+        <entry key="..\:/Android/FSEUSER/app/src/main/res/layout/fragment_welcome.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/amita/AndroidStudioProjects/FSEUSER/app/src/main/res/drawable/button_background.xml" value="0.2345" />
         <entry key="..\:/Users/amita/AndroidStudioProjects/FSEUSER/app/src/main/res/drawable/login_background.xml" value="0.2345" />
         <entry key="..\:/Users/amita/AndroidStudioProjects/FSEUSER/app/src/main/res/drawable/login_edit_background.xml" value="0.279" />
@@ -14,7 +36,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

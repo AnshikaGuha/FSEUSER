@@ -44,6 +44,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvappname" />
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvhomeicon"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/frag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvwmessage"
+        app:layout_constraintVertical_bias="0.384">
+        <ImageView
+            android:id="@+id/ivhomeicon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bitslogo" />
+    </com.google.android.material.card.MaterialCardView>
+
     <ImageView
         android:id="@+id/ivcircle"
         android:layout_width="186dp"

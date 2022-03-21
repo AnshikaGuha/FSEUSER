@@ -51,6 +51,7 @@ class HomepageActivity : AppCompatActivity() {
         }
 
         btabout.setOnClickListener {
+            ivhomeicon.setBackgroundResource(R.drawable.bitslogo)
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.frag,AboutFragment.newInstance("",""))
                 commit()
@@ -59,6 +60,7 @@ class HomepageActivity : AppCompatActivity() {
         }
 
         bthelp.setOnClickListener {
+            ivhomeicon.setBackgroundResource(R.drawable.fseteam)
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.frag,HelpFragment.newInstance("",""))
                 commit()
@@ -67,6 +69,7 @@ class HomepageActivity : AppCompatActivity() {
         }
 
         btcontact.setOnClickListener {
+            ivhomeicon.setBackgroundResource(R.drawable.contactfseteam)
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.frag,ContactFragment.newInstance("",""))
                 commit()
